@@ -1,10 +1,8 @@
-﻿using AdventOfCode.Tools;
-
-namespace Day07;
+﻿namespace Day07;
 
 public class Program
 {
-    private static readonly string[] _input = File.ReadAllLines(@"..\..\..\..\data\day07.txt");
+    private static readonly string[] _input = Input.ReadAllLines();
     private static readonly Dictionary<string, string> _baseSteps = GenerateSteps(_input);
     private static void Main()
     {

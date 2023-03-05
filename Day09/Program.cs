@@ -1,6 +1,4 @@
-﻿using AdventOfCode.Tools;
-
-namespace Day09;
+﻿namespace Day09;
 
 public class Program
 {

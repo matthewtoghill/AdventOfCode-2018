@@ -2,7 +2,7 @@
 
 public class Program
 {
-    private static readonly string[] input = File.ReadAllLines(@"..\..\..\..\data\day03.txt");
+    private static readonly string[] input = Input.ReadAllLines();
     private static string[,] grid = new string[1000, 1000];
     private static int overlapping = 0;
     private static Dictionary<int, int> rectangles = new();
@@ -11,14 +11,14 @@ public class Program
     {
         Solve();
         Console.WriteLine($"Part 1: {overlapping}");
-        Console.WriteLine($"Part 2: {rectangles.Where(x => x.Value == 0).First().Key}");
+        Console.WriteLine($"Part 2: {rectangles.First(x => x.Value == 0).Key}");
     }
 
     private static void Solve()
     {
         foreach (var line in input)
         {
-            var split = line.Split(new[] { ' ', '#', '@', 'x', ':', ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            var split = line.SplitAs<int>(" ", "#", "@", "x", ":", ",").ToArray();
             rectangles.Add(split[0], 0);
             UpdateGrid(split[0], split[1], split[2], split[3], split[4]);
         }

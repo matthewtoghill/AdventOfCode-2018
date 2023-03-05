@@ -2,7 +2,7 @@
 
 public class Program
 {
-    private static readonly int[] _input = File.ReadAllText(@"..\..\..\..\data\day08.txt").Split().Select(int.Parse).ToArray();
+    private static readonly int[] _input = Input.ReadAll().SplitAs<int>(" ").ToArray();
     private static void Main()
     {
         int index = 0;

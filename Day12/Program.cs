@@ -4,10 +4,10 @@ namespace Day12;
 
 public class Program
 {
-    private static readonly string input = File.ReadAllText(@"..\..\..\..\data\day12.txt");
+    private static readonly string input = Input.ReadAll();
     private static void Main()
     {
-        var split = input.Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+        var split = input.SplitOn("\n\n"); //input.Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
         var state = $".....{split[0][15..]}.....";
         var rules = split[1].Split('\n').Select(x => new Rule(x)).ToList();
         var maxNegativeIndex = -5;

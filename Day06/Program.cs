@@ -1,12 +1,10 @@
-﻿using AdventOfCode.Tools;
-
-namespace Day06;
+﻿namespace Day06;
 
 public class Program
 {
     private const int MAX_TOTAL_DISTANCE = 10_000;
-    private static readonly Coordinate[] _points = File.ReadAllLines(@"..\..\..\..\data\day06.txt").Select(x => x.Split(", "))
-                                                       .Select(x => new Coordinate(x[0], x[1])).ToArray();
+    private static readonly Coordinate[] _points = Input.ReadAllLines().Select(x => x.Split(", "))
+                                                        .Select(x => new Coordinate(x[0], x[1])).ToArray();
 
     private static void Main()
     {

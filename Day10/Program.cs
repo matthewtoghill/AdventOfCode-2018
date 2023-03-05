@@ -1,11 +1,10 @@
 ﻿using System.Text;
-using AdventOfCode.Tools;
 
 namespace Day10;
 
 public class Program
 {
-    private static readonly List<Point> points = File.ReadAllLines(@"..\..\..\..\data\day10.txt").Select(CreatePoint).ToList();
+    private static readonly List<Point> points = Input.ReadAllLines().Select(CreatePoint).ToList();
     private static void Main()
     {
         var minP = points.MinBy(p => p.Velocity.X + p.Velocity.Y)!; // point with the minimum velocity (e.g. -5, -5)
@@ -55,7 +54,7 @@ public class Program
 
     private static Point CreatePoint(string line)
     {
-        var split = line.Split(new[] { ", ", "=", "<", ">" }, StringSplitOptions.RemoveEmptyEntries);
+        var split = line.SplitOn(", ", "=", "<", ">");
         return new()
         {
             Position = (int.Parse(split[1]), int.Parse(split[2])),

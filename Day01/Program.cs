@@ -2,7 +2,7 @@
 
 public class Program
 {
-    private static readonly int[] frequencyChanges = File.ReadAllLines(@"..\..\..\..\data\day01.txt").Select(int.Parse).ToArray();
+    private static readonly int[] frequencyChanges = Input.ReadAllLinesAs<int>().ToArray();
     private static void Main()
     {
         Console.WriteLine($"Part 1: {Part1()}");

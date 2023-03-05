@@ -4,7 +4,7 @@ namespace Day05;
 
 public class Program
 {
-    private static readonly string _input = File.ReadAllText(@"..\..\..\..\data\day05.txt");
+    private static readonly string _input = Input.ReadAll();
     private static void Main()
     {
         Console.WriteLine($"Part 1: {ReactPolymer(_input)}");

@@ -1,10 +1,8 @@
-﻿using AdventOfCode.Tools;
-
-namespace Day04;
+﻿namespace Day04;
 
 public class Program
 {
-    private static readonly string[] _input = File.ReadAllLines(@"..\..\..\..\data\day04.txt");
+    private static readonly string[] _input = Input.ReadAllLines();
     private static readonly List<GuardDuty> _guardDuties = ParseGuardActivityLog(_input);
     private static void Main()
     {
@@ -41,7 +39,7 @@ public class Program
     private static int Part1()
     {
         var sleepiestGuard = _guardDuties.GroupBy(x => x.Id)
-                                         .Select(g => new { Id = g.Key, Total = g.SelectMany(x => x.AsleepMinutes).Count() })
+                                         .Select(g => new { Id = g.Key, Total = g.Sum(x => x.AsleepMinutes.Count) })
                                          .MaxBy(x => x.Total)!.Id;
 
         var maxMinuteAsleep = _guardDuties.Where(x => x.Id == sleepiestGuard)
