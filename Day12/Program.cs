@@ -7,7 +7,7 @@ public class Program
     private static readonly string input = Input.ReadAll();
     private static void Main()
     {
-        var split = input.SplitOn("\n\n"); //input.Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+        var split = input.SplitOn("\n\n");
         var state = $".....{split[0][15..]}.....";
         var rules = split[1].Split('\n').Select(x => new Rule(x)).ToList();
         var maxNegativeIndex = -5;
